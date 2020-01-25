@@ -1,0 +1,15 @@
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Tutorial_local_library_website
+
+cd /mnt/g/2020_working/coding/mdn_learnDjango2
+
+conda deactivate
+deactivate
+python3 -m venv venv
+source venv/bin/activate
+
+
+pip install python-dotenv
+pip install yolk3k
+#yolk -V django
+
+pip install django==2.2.9
