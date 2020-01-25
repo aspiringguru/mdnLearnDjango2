@@ -16,12 +16,17 @@ class AuthorAdmin(admin.ModelAdmin):
 # Register the admin class with the associated model
 admin.site.register(Author, AuthorAdmin)
 
+#https://docs.djangoproject.com/en/dev/ref/contrib/admin/#django.contrib.admin.TabularInline
+class BooksInstanceInline(admin.TabularInline):
+    """Defines format of inline book instance insertion (used in BookAdmin)"""
+    model = BookInstance
 
 # Register the Admin classes for Book using the decorator
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'display_genre')
     #list_display = ('title', 'author')
+    inlines = [BooksInstanceInline]
 
 # Register the Admin classes for BookInstance using the decorator
 @admin.register(BookInstance)
