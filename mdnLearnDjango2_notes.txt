@@ -13,3 +13,35 @@ pip install yolk3k
 #yolk -V django
 
 pip install django==2.2.9
+
+# run from git bash for windows as username and password set here
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/aspiringguru/mdnLearnDjango2.git
+git push -u origin master
+
+
+python -m django --version
+which django-admin
+django-admin --version
+
+
+#-------------------------------------------------------------------------------
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/skeleton_website
+Django Tutorial Part 2: Creating a skeleton website
+
+
+django-admin startproject locallibrary
+cd locallibrary
+
+python3 manage.py startapp catalog
+
+netstat -lntu
+python manage.py runserver
+#default port is 8000
+python manage.py runserver 8080
+#local connection to server only
+
+python manage.py runserver 0:8000
+#allows connection to server from anywhere
