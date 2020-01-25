@@ -31,9 +31,9 @@ urlpatterns += [
 ]
 
 #Add URL maps to redirect the base URL to our application
-urlpatterns += [
-    path('', RedirectView.as_view(url='catalog/', permanent=True)),
-]
+#urlpatterns += [
+#    path('', RedirectView.as_view(url='catalog/', permanent=True)),
+#]
 
 
 # Use static() to add url mapping to serve static files during development (only)

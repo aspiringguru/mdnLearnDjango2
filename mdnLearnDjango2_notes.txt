@@ -37,11 +37,23 @@ cd locallibrary
 
 python3 manage.py startapp catalog
 
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+python3 manage.py runserver
+
+
 netstat -lntu
-python manage.py runserver
+
 #default port is 8000
 python manage.py runserver 8080
 #local connection to server only
 
 python manage.py runserver 0:8000
 #allows connection to server from anywhere
+
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Models
+
+#-------------------------------------------------------------------------------
+python3 manage.py createsuperuser
