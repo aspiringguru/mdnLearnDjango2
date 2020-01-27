@@ -198,3 +198,19 @@ http://localhost:8000/catalog/books/?page=2
 
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions
 Django Tutorial Part 7: Sessions framework
+
+
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+Django Tutorial Part 8: User authentication and permissions
+
+create group
+create user
+customer1 theQuickDog
+customer2 theQuickDog
+customer3 theQuickDog
+
+#-------------------------------------------------------------------------------
+#fixed error Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+#edited locallibrary/settings.py
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
