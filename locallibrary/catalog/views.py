@@ -83,6 +83,11 @@ class BookDetailView(generic.DetailView):
         return render(request, 'catalog/book_detail.html', context={'book': book})
 
 
+class AuthorListView(generic.ListView):
+    """Generic class-based list view for a list of authors."""
+    model = Author
+    paginate_by = 10
+
 class AuthorDetailView(generic.DetailView):
     """Generic class-based detail view for an author."""
     model = Author
