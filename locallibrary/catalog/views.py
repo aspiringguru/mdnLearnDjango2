@@ -32,12 +32,18 @@ def index(request):
     # The 'all()' is implied by default.
     num_authors = Author.objects.count()
 
+    # Number of visits to this view, as counted in the session variable.
+    # https://docs.djangoproject.com/en/2.2/topics/http/sessions/
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+
     context = {
         'num_books': num_books,
         'num_instances': num_instances,
-        'num_genres': num_genres,
         'num_instances_available': num_instances_available,
+        'num_genres': num_genres,
         'num_authors': num_authors,
+        'num_visits': num_visits,
         'num_instances_maintenance': num_instances_maintenance,
         'num_instances_on_loan': num_instances_on_loan,
         'num_instances_reserved': num_instances_reserved,

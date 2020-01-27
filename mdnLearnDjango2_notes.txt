@@ -195,3 +195,6 @@ http://localhost:8000/catalog/books/?page=1
 http://localhost:8000/catalog/books/?page=2
 
 #-------------------------------------------------------------------------------
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions
+Django Tutorial Part 7: Sessions framework
