@@ -1,8 +1,11 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+
 book_list : {{ book_list }}<br>
 Num of books in book_list : {{ book_list.count }}<br>
+
+
   <h1>Book List</h1>
   {% if book_list %}
   <ul>
