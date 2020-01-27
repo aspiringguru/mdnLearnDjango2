@@ -214,3 +214,11 @@ customer3 theQuickDog
 #fixed error Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
 #edited locallibrary/settings.py
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+
+#error = TemplateDoesNotExist at /accounts/login/
+
+add subdirectories and file localibrary/templates/registration/login.html
+
+#django email setup not in this tutorial, setup info here
+https://docs.djangoproject.com/en/2.1/topics/email/
