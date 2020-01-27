@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 
 # Create your views here.
@@ -50,13 +51,15 @@ def index(request):
 
 class BookListView(generic.ListView):
     model = Book
+    #paginate_by = 10
+    paginate_by = 2
     #context_object_name = 'my_book_list'   # your own name for the list as a template variable
     #queryset = Book.objects.filter(title__icontains='red')[:5] # Get 5 books containing the title war
     #template_name = 'books/my_arbitrary_template_name_list.html'  # Specify your own template name/location
     template_name = 'book_list.html'  # Specify your own template name/location
 
     def get_queryset(self):
-        return Book.objects.filter(title__icontains='war')[:5] # Get 5 books containing the title war
+        return Book.objects.filter(title__icontains='yellow')[:5] # Get 5 books containing the title war
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get the context
@@ -64,3 +67,17 @@ class BookListView(generic.ListView):
         # Create any data and add it to the context
         context['some_data'] = 'This is just some data'
         return context
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    '''
+    def book_detail_view(request, primary_key):
+        try:
+            book = Book.objects.get(pk=primary_key)
+        except Book.DoesNotExist:
+            raise Http404('Book does not exist')
+        return render(request, 'catalog/book_detail.html', context={'book': book})
+    '''
+    def book_detail_view(request, primary_key):
+        book = get_object_or_404(Book, pk=primary_key)
+        return render(request, 'catalog/book_detail.html', context={'book': book})

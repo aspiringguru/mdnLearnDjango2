@@ -149,7 +149,49 @@ edit /locallibrary/catalog/templates/catalog/book_list.html
 #this now works with no visible error in browser or bash shell.
 http://localhost:8000/catalog/books/
 
-change
+#edit catalog/views.py, change as below.
 queryset = Book.objects.filter(title__icontains='war')[:5]
 to contain a word used in book titles.
 queryset = Book.objects.filter(title__icontains='yellow')[:5]
+
+#-------------------------------------------------------------------------------
+cd /mnt/g/2020_working/coding/mdn_learnDjango2
+conda deactivate
+deactivate
+source venv/bin/activate
+cd locallibrary/
+
+#to enter djngo shell NB: must be in project virtual env
+python manage.py shell
+#-------------------------------------------------------------------------------
+from django.conf import settings
+from django.urls import URLPattern, URLResolver
+
+urlconf = __import__(settings.ROOT_URLCONF, {}, {}, [''])
+
+def list_urls(lis, acc=None):
+    if acc is None:
+        acc = []
+    if not lis:
+        return
+    l = lis[0]
+    if isinstance(l, URLPattern):
+        yield acc + [str(l.pattern)]
+    elif isinstance(l, URLResolver):
+        yield from list_urls(l.url_patterns, acc + [str(l.pattern)])
+    yield from list_urls(lis[1:], acc)
+
+for p in list_urls(urlconf.urlpatterns):
+    print(''.join(p))
+#-------------------------------------------------------------------------------
+catalog/
+catalog/books/
+catalog/book/<int:pk>
+#-------------------------------------------------------------------------------
+
+#edit catalog/views.py, add line below to class class BookListView(generic.ListView):
+paginate_by = 2
+http://localhost:8000/catalog/books/?page=1
+http://localhost:8000/catalog/books/?page=2
+
+#-------------------------------------------------------------------------------
