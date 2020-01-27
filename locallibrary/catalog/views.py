@@ -81,3 +81,8 @@ class BookDetailView(generic.DetailView):
     def book_detail_view(request, primary_key):
         book = get_object_or_404(Book, pk=primary_key)
         return render(request, 'catalog/book_detail.html', context={'book': book})
+
+
+class AuthorDetailView(generic.DetailView):
+    """Generic class-based detail view for an author."""
+    model = Author
