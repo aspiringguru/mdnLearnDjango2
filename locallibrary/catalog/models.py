@@ -102,7 +102,12 @@ class BookInstance(models.Model):
     )
 
     class Meta:
+        """
+            part 8
+            Defining permissions is done on the model "class Meta" section w permissions field.
+        """
         ordering = ['due_back']
+        permissions = (("can_mark_returned", "Set book as returned"),)
 
     def __str__(self):
         """String for representing the Model object."""
