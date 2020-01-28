@@ -222,3 +222,22 @@ add subdirectories and file localibrary/templates/registration/login.html
 
 #django email setup not in this tutorial, setup info here
 https://docs.djangoproject.com/en/2.1/topics/email/
+
+
+https://github.com/mdn/django-locallibrary-tutorial/blob/master/catalog/views.py
+# Added as part of challenge!
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+
+class LoanedBooksAllListView(PermissionRequiredMixin, generic.ListView):
+    """Generic class-based view listing all books on loan. Only visible to users with can_mark_returned permission."""
+    model = BookInstance
+    permission_required = 'catalog.can_mark_returned'
+    template_name = 'catalog/bookinstance_list_borrowed_all.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(status__exact='o').order_by('due_back')
+
+todo - finish challenge
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
