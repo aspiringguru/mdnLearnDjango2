@@ -9,5 +9,10 @@ urlpatterns = [
     path('author/<int:pk>', views.AuthorDetailView.as_view(), name='author-detail'),
     #added in part 8
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
-    path(r'borrowed/', views.LoanedBooksAllListView.as_view(), name='all-borrowed'),  # Added for challenge part 8
+    path(r'borrowed/', views.LoanedBooksAllListView.as_view(), name='all-borrowed'),
+    # Added for challenge part 8
+    # views.LoanedBooksAllListView.as_view() directs to LoanedBooksAllListView() in views.py
+    path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
+    #added in part 9
+    # directs to renew_book_librarian() in views.py
 ]
