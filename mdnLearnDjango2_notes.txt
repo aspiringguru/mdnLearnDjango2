@@ -4,7 +4,7 @@ cd /mnt/g/2020_working/coding/mdn_learnDjango2
 
 conda deactivate
 deactivate
-python3 -m venv venv
+#python3 -m venv venv
 source venv/bin/activate
 
 
@@ -241,3 +241,29 @@ class LoanedBooksAllListView(PermissionRequiredMixin, generic.ListView):
 
 todo - finish challenge
 https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication
+
+#-------------------------------------------------------------------------------
+# reminder - access from fresh ubuntu shell & start server
+cd /mnt/g/2020_working/coding/mdn_learnDjango2
+conda deactivate
+deactivate
+source venv/bin/activate
+cd locallibrary/
+
+#to enter djngo shell NB: must be in project virtual env
+python manage.py shell
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+python3 manage.py runserver
+#-------------------------------------------------------------------------------
+customer1 theQuickDog
+customer2 theQuickDog
+customer3 theQuickDog
+#--------------------------------------------------------------------
+admin  123456
+#--------------------------------------------------------------------
+librarian1 123abc456!@#
+librarian2 123abc456!@#
+#--------------------------------------------------------------------
